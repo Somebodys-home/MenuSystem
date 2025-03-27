@@ -1,0 +1,6 @@
+name: MenuSystem
+version: '1.0-SNAPSHOT'
+main: io.github.Gabriel.menuSystem.MenuSystem
+api-version: '1.21'
+authors: [ Gabriel Nicolas ]
+description: Plugin for my mc server for its abilites
