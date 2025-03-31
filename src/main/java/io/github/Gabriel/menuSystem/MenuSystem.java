@@ -14,11 +14,6 @@ public final class MenuSystem extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
     }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
-
     public static PlayerMenuUtility getPlayerMenuUtility(Player player) {
         PlayerMenuUtility playerMenuUtility;
 
