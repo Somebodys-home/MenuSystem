@@ -14,13 +14,13 @@ public final class MenuSystem extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
     }
 
-    public static PlayerMenuUtility getPlayerMenuUtility(Player player) {
+    public static PlayerMenuUtility getPlayerMenuUtility(Player player, JavaPlugin plugin) {
         PlayerMenuUtility playerMenuUtility;
 
         if (playerMenuUtilityMap.containsKey(player)) {
             return playerMenuUtilityMap.get(player);
         } else {
-            playerMenuUtility = new PlayerMenuUtility(player);
+            playerMenuUtility = new PlayerMenuUtility(plugin, player);
             playerMenuUtilityMap.put(player, playerMenuUtility);
             return playerMenuUtility;
         }
