@@ -18,4 +18,8 @@ public class PlayerMenuUtility {
     public void setOwner(Player owner) {
         this.owner = owner;
     }
+
+    public JavaPlugin getPlugin() {
+        return plugin;
+    }
 }
