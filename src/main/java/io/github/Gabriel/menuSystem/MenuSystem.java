@@ -5,23 +5,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 
-public final class MenuSystem extends JavaPlugin {
-    private final JavaPlugin menuSystem;
+public class MenuSystem {
+    private final JavaPlugin plugin;
     private final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
-    public MenuSystem(JavaPlugin menuSystem) {
-        this.menuSystem = menuSystem;
+    public MenuSystem(JavaPlugin plugin) {
+        this.plugin = plugin;
     }
 
-    @Override
-    public void onEnable() {
-        getServer().getPluginManager().registerEvents(new MenuListener(), this);
-    }
-
-    public PlayerMenuUtility getPlayerMenuUtility(Player player, JavaPlugin plugin) {
+    public PlayerMenuUtility getPlayerMenuUtility(Player player) {
         return playerMenuUtilityMap.computeIfAbsent(
                 player,
-                uuid -> new PlayerMenuUtility(plugin, player)
+                p -> new PlayerMenuUtility(plugin, p)
         );
     }
 }
