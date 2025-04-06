@@ -4,20 +4,30 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
-import java.util.UUID;
 
-public class MenuSystem {
-    private final JavaPlugin plugin;
-    private final HashMap<UUID, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
+public final class MenuSystem extends JavaPlugin {
+    private static MenuSystem menuSystem;
+    private static final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
-    public MenuSystem(JavaPlugin plugin) {
-        this.plugin = plugin;
+    @Override
+    public void onEnable() {
+        getServer().getPluginManager().registerEvents(new MenuListener(), this);
     }
 
-    public PlayerMenuUtility getPlayerMenuUtility(Player player) {
-        return playerMenuUtilityMap.computeIfAbsent(
-                player.getUniqueId(),
-                p -> new PlayerMenuUtility(plugin, player)
-        );
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
+    }
+
+    public static PlayerMenuUtility getPlayerMenuUtility(Player player) {
+        PlayerMenuUtility playerMenuUtility;
+
+        if (playerMenuUtilityMap.containsKey(player)) {
+            return playerMenuUtilityMap.get(player);
+        } else {
+            playerMenuUtility = new PlayerMenuUtility(player);
+            playerMenuUtilityMap.put(player, playerMenuUtility);
+            return playerMenuUtility;
+        }
     }
 }
