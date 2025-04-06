@@ -18,10 +18,10 @@ public final class MenuSystem extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
     }
 
-    public PlayerMenuUtility getPlayerMenuUtility(Player player) {
+    public PlayerMenuUtility getPlayerMenuUtility(Player player, JavaPlugin plugin) {
         return playerMenuUtilityMap.computeIfAbsent(
                 player,
-                uuid -> new PlayerMenuUtility(menuSystem, player)
+                uuid -> new PlayerMenuUtility(plugin, player)
         );
     }
 }
