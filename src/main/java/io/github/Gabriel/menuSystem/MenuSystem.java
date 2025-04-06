@@ -6,15 +6,19 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.HashMap;
 
 public final class MenuSystem extends JavaPlugin {
-    private static MenuSystem menuSystem;
-    private static final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
+    private final JavaPlugin menuSystem;
+    private final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
+
+    public MenuSystem(JavaPlugin menuSystem) {
+        this.menuSystem = menuSystem;
+    }
 
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
     }
 
-    public static PlayerMenuUtility getPlayerMenuUtility(Player player, JavaPlugin plugin) {
+    public PlayerMenuUtility getPlayerMenuUtility(Player player, JavaPlugin plugin) {
         PlayerMenuUtility playerMenuUtility;
 
         if (playerMenuUtilityMap.containsKey(player)) {
