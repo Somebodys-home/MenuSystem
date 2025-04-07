@@ -4,11 +4,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class PlayerMenuUtility {
-    private JavaPlugin plugin;
     private Player owner;
 
-    public PlayerMenuUtility(JavaPlugin plugin, Player owner) {
-        this.plugin = plugin;
+    public PlayerMenuUtility(Player owner) {
         this.owner = owner;
     }
     public Player getOwner() {
@@ -17,9 +15,5 @@ public class PlayerMenuUtility {
 
     public void setOwner(Player owner) {
         this.owner = owner;
-    }
-
-    public JavaPlugin getPlugin() {
-        return plugin;
     }
 }

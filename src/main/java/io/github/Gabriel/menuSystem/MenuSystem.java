@@ -1,29 +1,24 @@
 package io.github.Gabriel.menuSystem;
 
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
+import java.util.Map;
 
-public final class MenuSystem extends JavaPlugin {
-    private static JavaPlugin menuSystem;
-    private static final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
+public final class MenuSystem {
 
-    @Override
-    public void onEnable() {
-        menuSystem = this;
-        getServer().getPluginManager().registerEvents(new MenuListener(), this);
-    }
+    private static final Map<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
+
+    // Prevent instantiation
+    private MenuSystem() {}
 
     public static PlayerMenuUtility getPlayerMenuUtility(Player player) {
-        PlayerMenuUtility playerMenuUtility;
+        return playerMenuUtilityMap.computeIfAbsent(player, p -> new PlayerMenuUtility(p));
+    }
 
-        if (playerMenuUtilityMap.containsKey(player)) {
-            return playerMenuUtilityMap.get(player);
-        } else {
-            playerMenuUtility = new PlayerMenuUtility(menuSystem, player);
-            playerMenuUtilityMap.put(player, playerMenuUtility);
-            return playerMenuUtility;
-        }
+    // Optional method if you want to clear memory when players quit
+    public static void removePlayerMenuUtility(Player player) {
+        playerMenuUtilityMap.remove(player);
     }
 }
+
