@@ -11,6 +11,7 @@ public final class MenuSystem extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        menuSystem = this;
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
     }
 
