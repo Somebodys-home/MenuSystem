@@ -10,17 +10,16 @@ import java.util.Objects;
 public class MenuListener implements Listener {
     @EventHandler
     public void onMenuClick(InventoryClickEvent event) {
-        InventoryHolder holder = Objects.requireNonNull(event.getClickedInventory()).getHolder();
+        if (event.getClickedInventory() == null) return;
 
-        if (holder instanceof Menu) {
+        InventoryHolder holder = event.getClickedInventory().getHolder();
+        if (holder instanceof Menu menu) {
             event.setCancelled(true);
 
-            if (event.getCurrentItem() == null) {
-                return;
-            }
+            if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
 
-            Menu menu = (Menu) holder;
             menu.handleMenu(event);
         }
     }
+
 }
