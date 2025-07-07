@@ -5,10 +5,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryHolder;
 
+import java.util.Objects;
+
 public class MenuListener implements Listener {
     @EventHandler
     public void onMenuClick(InventoryClickEvent event) {
-        InventoryHolder holder = event.getClickedInventory().getHolder();
+        InventoryHolder holder = Objects.requireNonNull(event.getClickedInventory()).getHolder();
 
         if (holder instanceof Menu) {
             event.setCancelled(true);
