@@ -5,14 +5,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class MenuSystem extends JavaPlugin {
+public final class MenuSystem {
     private static final Map<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
-    @Override
-    public void onEnable() {
-        // Plugin startup logic
+    public MenuSystem() {}
 
-    }
     public static PlayerMenuUtility getPlayerMenuUtility(Player player) {
         return playerMenuUtilityMap.computeIfAbsent(player, p -> new PlayerMenuUtility(p));
     }
