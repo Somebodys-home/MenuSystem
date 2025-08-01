@@ -1,4 +1,4 @@
-package io.github.Gabriel.menuSystem;
+package io.github.NoOne.menuSystem;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

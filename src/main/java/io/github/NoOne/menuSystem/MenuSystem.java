@@ -1,17 +1,24 @@
 package io.github.NoOne.menuSystem;
 
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class MenuSystem extends JavaPlugin {
+    private static final Map<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
     @Override
     public void onEnable() {
         // Plugin startup logic
 
     }
+    public static PlayerMenuUtility getPlayerMenuUtility(Player player) {
+        return playerMenuUtilityMap.computeIfAbsent(player, p -> new PlayerMenuUtility(p));
+    }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
+    // Optional method if you want to clear memory when players quit
+    public static void removePlayerMenuUtility(Player player) {
+        playerMenuUtilityMap.remove(player);
     }
 }

@@ -1,11 +1,9 @@
-package io.github.Gabriel.menuSystem;
+package io.github.NoOne.menuSystem;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryHolder;
-
-import java.util.Objects;
 
 public class MenuListener implements Listener {
     @EventHandler
