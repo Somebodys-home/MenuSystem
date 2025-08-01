@@ -1,0 +1,4 @@
+name: MenuSystem
+version: '1.0'
+main: io.github.NoOne.menuSystem.MenuSystem
+api-version: '1.21'
