@@ -14,9 +14,7 @@ public class MenuListener implements Listener {
         if (holder instanceof Menu menu) {
             event.setCancelled(true);
             event.getClickedInventory().setItem(event.getSlot(), event.getCurrentItem());
-
             if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
-
             menu.handleMenu(event);
         }
     }
