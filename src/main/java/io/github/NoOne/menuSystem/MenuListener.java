@@ -19,6 +19,7 @@ public class MenuListener implements Listener {
             if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
 
             menu.handleMenu(event);
+            System.out.println("sneed");
         }
     }
 }
