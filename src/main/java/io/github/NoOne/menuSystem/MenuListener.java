@@ -10,17 +10,15 @@ import org.bukkit.inventory.PlayerInventory;
 public class MenuListener implements Listener {
     @EventHandler
     public void onMenuClick(InventoryClickEvent event) {
-        Inventory topInventory = event.getView().getTopInventory();
         Inventory clickedInventory = event.getClickedInventory();
+        Inventory topInventory = event.getView().getTopInventory();
 
-        if (topInventory.getHolder() instanceof Menu menu && clickedInventory != null) {
-            if (clickedInventory.equals(topInventory)) {
-                System.out.println("sneed");
-                event.setCancelled(true);
-                if (event.getCurrentItem() == null) return;
+        if (clickedInventory != null && clickedInventory.equals(topInventory) && topInventory.getHolder() instanceof Menu menu) {
+            System.out.println("sneed");
+            event.setCancelled(true);
+            if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
 
-                menu.handleMenu(event);
-            }
+            menu.handleMenu(event);
         }
     }
 }
