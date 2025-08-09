@@ -12,6 +12,7 @@ public class MenuListener implements Listener {
         event.setCancelled(true);
         System.out.println("Inventory action: " + event.getAction());
         System.out.println("Click type: " + event.getClick());
+        System.out.println("Inventory: " + event.getClickedInventory());
 //        if (event.getView().getTopInventory().getHolder() instanceof Menu menu && event.getClickedInventory() != null) {
 //            if (event.getClickedInventory().equals(event.getView().getTopInventory())) {
 //                System.out.println("sneed");
