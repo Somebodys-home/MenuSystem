@@ -9,7 +9,9 @@ import org.bukkit.inventory.PlayerInventory;
 public class MenuListener implements Listener {
     @EventHandler
     public void onMenuClick(InventoryClickEvent event) {
-        System.out.println("sneed");
+        event.setCancelled(true);
+        System.out.println("Inventory action: " + event.getAction());
+        System.out.println("Click type: " + event.getClick());
 //        if (event.getView().getTopInventory().getHolder() instanceof Menu menu && event.getClickedInventory() != null) {
 //            if (event.getClickedInventory().equals(event.getView().getTopInventory())) {
 //                System.out.println("sneed");
