@@ -18,8 +18,8 @@ public class MenuListener implements Listener {
 //            event.getClickedInventory().setItem(event.getSlot(), event.getCurrentItem());
 //
 //            if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
-
-            menu.handleMenu(event);
+//
+//            menu.handleMenu(event);
         }
     }
 }
