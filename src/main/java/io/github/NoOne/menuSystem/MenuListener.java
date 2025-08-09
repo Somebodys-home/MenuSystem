@@ -13,13 +13,13 @@ public class MenuListener implements Listener {
 
         InventoryHolder holder = event.getClickedInventory().getHolder();
         if (holder instanceof Menu menu) {
+            System.out.println("sneed");
             event.setCancelled(true);
-            // event.getClickedInventory().setItem(event.getSlot(), event.getCurrentItem());
-
-            if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
+//            event.getClickedInventory().setItem(event.getSlot(), event.getCurrentItem());
+//
+//            if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
 
             menu.handleMenu(event);
-            System.out.println("sneed");
         }
     }
 }
