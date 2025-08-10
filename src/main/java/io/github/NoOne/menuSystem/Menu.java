@@ -28,6 +28,8 @@ public abstract class Menu implements InventoryHolder {
 
     public abstract void handleMenu(InventoryClickEvent event);
 
+    public abstract void handlePlayerMenu(InventoryClickEvent event);
+
     public abstract void setMenuItems();
 
     @Override

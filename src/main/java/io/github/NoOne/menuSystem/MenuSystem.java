@@ -8,9 +8,7 @@ import java.util.Map;
 public final class MenuSystem {
     private static final Map<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
-    public MenuSystem() {
-
-    }
+    public MenuSystem() {}
 
     public static PlayerMenuUtility getPlayerMenuUtility(Player player) {
         return playerMenuUtilityMap.computeIfAbsent(player, p -> new PlayerMenuUtility(p));

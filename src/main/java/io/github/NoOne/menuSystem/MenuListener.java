@@ -12,13 +12,17 @@ public class MenuListener implements Listener {
     public void onMenuClick(InventoryClickEvent event) {
         Inventory clickedInventory = event.getClickedInventory();
         Inventory topInventory = event.getView().getTopInventory();
+        Inventory bottomInventory = event.getView().getBottomInventory();
 
         System.out.println("Clicked inventory: " + clickedInventory);
-        if (clickedInventory != null && clickedInventory.equals(topInventory) && topInventory.getHolder() instanceof Menu menu) {
-            event.setCancelled(true);
+        if (clickedInventory != null && topInventory.getHolder() instanceof Menu menu) {
             if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
 
-            menu.handleMenu(event);
+            if (clickedInventory.equals(topInventory)) {
+                menu.handleMenu(event);
+            } else if (clickedInventory.equals(bottomInventory)) {
+                menu.handlePlayerMenu(event);
+            }
         }
     }
 }
