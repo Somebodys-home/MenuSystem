@@ -14,7 +14,7 @@ public class MenuListener implements Listener {
         Inventory topInventory = event.getView().getTopInventory();
 
         if (clickedInventory != null && clickedInventory.equals(topInventory) && topInventory.getHolder() instanceof Menu menu) {
-            System.out.println(clickedInventory);
+            System.out.println("Clicked inventory: " + clickedInventory);
             event.setCancelled(true);
             if (event.getCurrentItem() == null || event.getCurrentItem().getType().isAir()) return;
 
