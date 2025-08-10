@@ -13,6 +13,7 @@ public class MenuListener implements Listener {
         Inventory clickedInventory = event.getClickedInventory();
         Inventory topInventory = event.getView().getTopInventory();
 
+        System.out.println("fucking HELP ME");
         if (clickedInventory != null && clickedInventory.equals(topInventory) && topInventory.getHolder() instanceof Menu menu) {
             System.out.println("Clicked inventory: " + clickedInventory);
             event.setCancelled(true);
