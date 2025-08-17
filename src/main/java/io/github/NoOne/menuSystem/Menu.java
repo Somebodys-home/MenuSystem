@@ -42,48 +42,4 @@ public abstract class Menu implements InventoryHolder {
         this.setMenuItems();
         playerMenuUtility.getOwner().openInventory(inventory);
     }
-
-    public void underConstruction() {
-        int rows = getSlots() / 9;
-        ItemStack wip = new ItemStack(Material.OAK_SIGN, 1);
-        ItemMeta wipMeta = wip.getItemMeta();
-        wipMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&e!! MENU CURRENTLY UNDER CONSTRUCTION !!"));
-        wip.setItemMeta(wipMeta);
-
-        if (rows % 2 == 0) { // no simple middle >:T
-            int topMiddleRow = (rows / 2) - 1;
-            int bottomMiddleRow = topMiddleRow + 1;
-
-            inventory.setItem((topMiddleRow * 9), new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((topMiddleRow * 9) + 1, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((topMiddleRow * 9) + 2, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((topMiddleRow * 9) + 3, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((topMiddleRow * 9) + 4, wip);
-            inventory.setItem((topMiddleRow * 9) + 5, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((topMiddleRow * 9) + 6, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((topMiddleRow * 9) + 7, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((topMiddleRow * 9) + 8, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((bottomMiddleRow * 9), new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((bottomMiddleRow * 9) + 1, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((bottomMiddleRow * 9) + 2, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((bottomMiddleRow * 9) + 3, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((bottomMiddleRow * 9) + 4, wip);
-            inventory.setItem((bottomMiddleRow * 9) + 5, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((bottomMiddleRow * 9) + 6, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((bottomMiddleRow * 9) + 7, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((bottomMiddleRow * 9) + 8, new ItemStack(YELLOW_TERRACOTTA));
-        } else { // yes simple middle :D
-            int middleRow = rows / 2;
-
-            inventory.setItem((middleRow * 9), new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((middleRow * 9) + 1, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((middleRow * 9) + 2, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((middleRow * 9) + 3, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((middleRow * 9) + 4, wip);
-            inventory.setItem((middleRow * 9) + 5, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((middleRow * 9) + 6, new ItemStack(YELLOW_TERRACOTTA));
-            inventory.setItem((middleRow * 9) + 7, new ItemStack(BLACK_TERRACOTTA));
-            inventory.setItem((middleRow * 9) + 8, new ItemStack(BLACK_TERRACOTTA));
-        }
-    }
 }
