@@ -1,18 +1,18 @@
 package io.github.NoOne.menuSystem;
 
-import org.bukkit.entity.Player;
+import java.util.UUID;
 
 public class PlayerMenuUtility {
-    private Player owner;
+    private UUID owner;
 
-    public PlayerMenuUtility(Player owner) {
+    public PlayerMenuUtility(UUID owner) {
         this.owner = owner;
     }
-    public Player getOwner() {
+    public UUID getOwner() {
         return owner;
     }
 
-    public void setOwner(Player owner) {
+    public void setOwner(UUID owner) {
         this.owner = owner;
     }
 }

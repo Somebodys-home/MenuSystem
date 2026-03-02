@@ -3,6 +3,7 @@ package io.github.NoOne.menuSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
@@ -38,8 +39,10 @@ public abstract class Menu implements InventoryHolder {
     }
 
     public void open() {
+        Player player = Bukkit.getPlayer(playerMenuUtility.getOwner());
+
         inventory = Bukkit.createInventory(this, getSlots(), getMenuName());
         this.setMenuItems();
-        playerMenuUtility.getOwner().openInventory(inventory);
+        player.openInventory(inventory);
     }
 }
