@@ -9,6 +9,8 @@ import java.util.UUID;
 public final class MenuSystem {
     private static final HashMap<UUID, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
+    public MenuSystem() {}
+
     public static PlayerMenuUtility getPlayerMenuUtility(Player player) {
         UUID uuid = player.getUniqueId();
 
