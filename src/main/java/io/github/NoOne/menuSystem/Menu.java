@@ -19,8 +19,8 @@ public abstract class Menu implements InventoryHolder {
     protected Inventory inventory;
     protected PlayerMenuUtility playerMenuUtility;
 
-    public Menu(PlayerMenuUtility playerMenuUtility) {
-        this.playerMenuUtility = playerMenuUtility;
+    public Menu(Player player) {
+        playerMenuUtility = MenuSystem.getPlayerMenuUtility(player);
     }
 
     public abstract String getMenuName();
