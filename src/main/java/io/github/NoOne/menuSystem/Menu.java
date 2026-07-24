@@ -17,9 +17,11 @@ import static org.bukkit.Material.YELLOW_TERRACOTTA;
 
 public abstract class Menu implements InventoryHolder {
     protected Inventory inventory;
+    protected Player player;
     protected PlayerMenuUtility playerMenuUtility;
 
     public Menu(Player player) {
+        this.player = player;
         playerMenuUtility = MenuSystem.getPlayerMenuUtility(player);
     }
 
@@ -44,6 +46,6 @@ public abstract class Menu implements InventoryHolder {
             setMenuItems();
         }
 
-        playerMenuUtility.getOwner().openInventory(this.inventory);
+        player.openInventory(this.inventory);
     }
 }
